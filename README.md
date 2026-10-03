@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # **ESP32 Proxy-Powered Internet Radio 📻**
 
 A high-fidelity, stutter-free Wi-Fi internet radio built with a standard ESP32, a PCM5102 I2S DAC, and a local Python TCP proxy server.  
@@ -76,4 +76,3 @@ You need a machine (PC, Mac, or Raspberry Pi) on the same local network as your 
 * **Volume Control:** Turn the 10K potentiometer to adjust the software volume (0-21 scale). The ESP32 polls this analog pin and remaps it dynamically without interrupting the audio buffer.
 =======
 If you’ve ever tried building a standalone Wi-Fi radio using a standard ESP32 (without external PSRAM), you’ve likely hit the memory bottleneck: asking the microcontroller to handle heavy HTTPS/SSL decryption while simultaneously buffering high-bitrate audio usually results in constant stuttering or fatal crashes.
->>>>>>> b35cd2a28ab5a16923e970f0ea8fc3bd1f5ebab4
