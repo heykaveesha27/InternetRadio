@@ -1,0 +1,1 @@
+If you’ve ever tried building a standalone Wi-Fi radio using a standard ESP32 (without external PSRAM), you’ve likely hit the memory bottleneck: asking the microcontroller to handle heavy HTTPS/SSL decryption while simultaneously buffering high-bitrate audio usually results in constant stuttering or fatal crashes.
