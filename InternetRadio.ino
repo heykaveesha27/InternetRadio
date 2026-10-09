@@ -3,18 +3,17 @@
 #include <WiFi.h>
 #include "Audio.h"
 #include "esp_bt.h"
-
 // ----Wi-Fi Credentials ----
-const char* ssid = "your ssid";
-const char* password = "wifi password";
+const char* ssid = "hutchj5";
+const char* password = "12345678";
 
 //---PCM5102 i2s pins
 #define I2S_DOUT 26 // DIN on PCM5102
 #define I2S_BCLK 27 // BCK on PCM5102
 #define I2S_LRC  25 //LCRK on PCM 5102
 
-#define CLK_PIN 32 //left pin of potentiometer
-#define DT_PIN 33 //right pin of potentiometer
+#define CLK_PIN 32
+#define DT_PIN 33
 
 volatile int currentChannel = 1;
 int lastChannel = 1;
@@ -27,7 +26,7 @@ void IRAM_ATTR readEncoder(){
     if(digitalRead(DT_PIN)==HIGH) currentChannel++;
     else currentChannel--;
 
-    //Loop channels between 1 and 5
+    //Loop channels between 1 and 3
     if (currentChannel > 5) currentChannel = 1;
     if (currentChannel < 1) currentChannel = 5;
 
@@ -85,6 +84,8 @@ void setup(){
   audio.forceMono(true);
   audio.setConnectionTimeout(2000, 7200);
 
+  //3. Connect to an Internet Radio Stream
+  //audio.connecttohost("http://radio.lotustechnologieslk.net:2020/stream/shaafmgarden");
 
   lcd.clear();
   lcd.setCursor(0,0);
@@ -134,6 +135,9 @@ void loop(){
       Serial.println(currentVolume);
       lcd.setCursor(0, 1);
       lcd.print("Volume: ");
+      if(currentVolume<10){
+        lcd.print("0");
+      }
       lcd.print(currentVolume);
     }
   }
