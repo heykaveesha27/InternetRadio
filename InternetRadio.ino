@@ -4,8 +4,13 @@
 #include "Audio.h"
 #include "esp_bt.h"
 // ----Wi-Fi Credentials ----
+<<<<<<< HEAD
 const char* ssid = "hutchj5";
 const char* password = "12345678";
+=======
+const char* ssid = "WIFI SSID";
+const char* password = "WIFI PASSWORD";
+>>>>>>> 864b68a70a3e16e18592ecb66d69e8799401f665
 
 //---PCM5102 i2s pins
 #define I2S_DOUT 26 // DIN on PCM5102
